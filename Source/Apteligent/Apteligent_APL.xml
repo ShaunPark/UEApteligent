@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Apteligent plugin additions-->
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- init section is always evaluated once per architecture -->
+	<init>
+		<log text="Apteligent init"/>
+	</init>
+
+	<!-- optional additions to proguard -->
+	<proguardAdditions>
+		<insert>
+			-keep class com.crittercism.** {
+			*;
+			}
+			-keep class android.app.** {
+			*;
+			}
+		</insert>
+	</proguardAdditions>
+
+	<!-- optional files or directories to copy to Intermediate/Android/APK -->
+	<resourceCopies>
+		<copyFile src="$S(PluginDir)/../../lib/Android/crittercism_v5_8_0_ndk.jar" dst="$S(BuildDir)/libs/crittercism_v5_6_4_ndk.jar" />
+	</resourceCopies>
+  <gameActivityImportAdditions>
+    <insert>
+      import com.crittercism.app.Crittercism;
+    </insert>
+  </gameActivityImportAdditions>
+    <gameActivityOnCreateAdditions>
+      <insert>
+        Crittercism.initialize(getApplicationContext(), "54d83a8e3cf56b9e0457df08");
+      </insert>
+    </gameActivityOnCreateAdditions>
+    <!-- optional updates applied to AndroidManifest.xml -->
+    <androidManifestUpdates>
+        <addPermission android:name="android.permission.INTERNET"/>
+        <addPermission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <addPermission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    </androidManifestUpdates>
+</root>
