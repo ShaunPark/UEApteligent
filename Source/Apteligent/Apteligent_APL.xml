@@ -29,7 +29,7 @@
   </gameActivityImportAdditions>
     <gameActivityOnCreateAdditions>
       <insert>
-        Crittercism.initialize(getApplicationContext(), "54d83a8e3cf56b9e0457df08");
+        Crittercism.initialize(getApplicationContext(), "APTELIGENT_APP_ID_HERE");
       </insert>
     </gameActivityOnCreateAdditions>
     <!-- optional updates applied to AndroidManifest.xml -->
